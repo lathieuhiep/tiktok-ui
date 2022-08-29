@@ -1,9 +1,10 @@
 import Header from "../components/Header";
+import './DefaultLayout.scss';
 import Sidebar from "./Sidebar";
 
 function DefaultLayout({ children }) {
     return (
-        <div>
+        <div className="wrapper">
             <Header />
 
             <div className="container">
