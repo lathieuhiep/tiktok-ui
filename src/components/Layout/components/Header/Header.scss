@@ -21,6 +21,8 @@
   }
 
   .search {
+    position: relative;
+
     &__form {
       position: relative;
       padding-left: 16px;
@@ -89,6 +91,15 @@
         }
       }
     }
+  }
+
+  .search,
+  .search-result {
+    width: 361px;
+  }
+
+  .search-result {
+    position: relative;
   }
 }
 
