@@ -6,12 +6,15 @@ import imagesAvatarDefault from '../../assets/images/avatar-default.png'
 function AccountItem() {
     return (
         <div className="account-wrapper">
-            <img className="avatar" src={imagesAvatarDefault} alt="Hoa" />
+            <div className="avatar">
+                <img src={imagesAvatarDefault} alt="Hoa" />
+            </div>
+
             <div className="info">
-                <p className="name">
+                <h4 className="name">
                     <span>Nguyen Van A</span>
                     <FontAwesomeIcon icon={faCheckCircle} />
-                </p>
+                </h4>
 
                 <span className="username">nguyenvana</span>
             </div>

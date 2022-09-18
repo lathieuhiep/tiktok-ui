@@ -7,14 +7,14 @@ import { Wrapper as PopperWrapper } from "../../../Popper";
 import './Header.scss';
 import images from "../../../../assets/images";
 import AccountItem from "../../../AccountItem";
-
+import Button from "../../../Button";
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3])
+            setSearchResult([])
         }, 0)
     }, [])
 
@@ -36,11 +36,13 @@ function Header() {
                                         Accounts
                                     </h4>
 
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
+                                    <div className="list-account">
+                                        <AccountItem />
+                                        <AccountItem />
+                                        <AccountItem />
+                                        <AccountItem />
+                                        <AccountItem />
+                                    </div>
                                 </PopperWrapper>
                             </div>
                         )}
@@ -63,7 +65,9 @@ function Header() {
                     </Tippy>
                 </div>
 
-                <div className="actions"></div>
+                <div className="actions">
+                    <Button outline>Log in</Button>
+                </div>
             </div>
         </header>
     )
