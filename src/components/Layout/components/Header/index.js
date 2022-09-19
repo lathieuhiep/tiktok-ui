@@ -66,7 +66,8 @@ function Header() {
                 </div>
 
                 <div className="actions">
-                    <Button outline>Log in</Button>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
                 </div>
             </div>
         </header>
