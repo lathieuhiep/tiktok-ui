@@ -11,6 +11,8 @@ function Button({
     rounded = false,
     small = false,
     large = false,
+    leftIcon,
+    rightIcon,
     children,
     onClick,
     ...passProps
@@ -34,18 +36,29 @@ function Button({
     }
 
     const classes = {
-        primary: primary ? ' btn-primary' : '',
-        outline: outline ? ' btn-outline' : '',
-        text: text ? ' btn-text' : '',
-        disabled: disabled ? ' btn-disabled' : '',
-        rounded: rounded ? ' btn-rounded' : '',
-        small: small ? ' btn-small' : '',
-        large: large ? ' btn-large' : '',
+        primary: primary ? 'btn-primary' : '',
+        outline: outline ? 'btn-outline' : '',
+        text: text ? 'btn-text' : '',
+        disabled: disabled ? 'btn-disabled' : '',
+        rounded: rounded ? 'btn-rounded' : '',
+        small: small ? 'btn-small' : '',
+        large: large ? 'btn-large' : '',
+    }
+
+    const resultClasses = Object.values(classes).filter(element => {
+        return element !== '';
+    });
+
+    let newClasses = '';
+    if ( resultClasses.length ) {
+        newClasses = resultClasses.toString().replace(",", " ")
     }
 
     return (
-        <Comp className={`btn${classes.primary + classes.outline + classes.text + classes.disabled + classes.rounded + classes.small + classes.large}`} {...props}>
+        <Comp className={`btn${newClasses ? ' ' + newClasses : ''}`} {...props}>
+            {leftIcon && <span className="icon left-icon">{leftIcon}</span>}
             <span>{children}</span>
+            {rightIcon && <span className="icon right-icon">{rightIcon}</span>}
         </Comp>
     )
 }

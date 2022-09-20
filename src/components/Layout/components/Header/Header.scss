@@ -115,7 +115,34 @@
   }
 
   .actions {
+    .btn-more {
+      margin-left: 28px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 2rem;
+      background-color: transparent;
+    }
+  }
+}
 
+// Menu
+.menu-items {
+  width: 224px;
+
+  .btn {
+    padding: 10px 16px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+
+    + .btn {
+      margin-left: 0;
+    }
+
+    &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+    }
   }
 }
 
