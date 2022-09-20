@@ -2,17 +2,20 @@ import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faCircleQuestion,
-    faCircleXmark,
+    faCircleXmark, faCloudUpload,
     faEarthAsia,
-    faEllipsisVertical, faKeyboard,
+    faEllipsisVertical, faKeyboard, faMessage,
     faSearch,
     faSpinner
 } from "@fortawesome/free-solid-svg-icons";
-import Tippy from '@tippyjs/react/headless';
+import Tippy from "@tippyjs/react/";
+import HeadlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css';
 
 import { Wrapper as PopperWrapper } from "../../../Popper";
 import './Header.scss';
 import images from "../../../../assets/images";
+import imageAvatar from "../../../../assets/images/avatar-default.png";
 import AccountItem from "../../../AccountItem";
 import Button from "../../../Button";
 import Menu from "../../../Popper/Menu";
@@ -20,7 +23,20 @@ import Menu from "../../../Popper/Menu";
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
-        title: 'English'
+        title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English'
+                },
+                {
+                    code: 'vn',
+                    title: 'Tiếng Việt'
+                },
+            ]
+        }
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -42,6 +58,8 @@ function Header() {
         }, 0)
     }, [])
 
+    const currentUser = true
+
     return (
         <header className="header">
             <div className="header__inner">
@@ -50,7 +68,7 @@ function Header() {
                 </div>
 
                 <div className="search">
-                    <Tippy
+                    <HeadlessTippy
                         interactive
                         visible={searchResult.length > 0}
                         render={attrs => (
@@ -86,21 +104,43 @@ function Header() {
                                 <FontAwesomeIcon icon={faSearch} />
                             </button>
                         </form>
-                    </Tippy>
+                    </HeadlessTippy>
                 </div>
 
                 <div className="actions">
-                    <Button text>Upload</Button>
+                    <div className="left-box">
+                        {currentUser ? (
+                            <>
+                                <Tippy content="Upload video" placement={'bottom'}>
+                                    <button className="btn-action">
+                                        <FontAwesomeIcon icon={faCloudUpload} />
+                                    </button>
+                                </Tippy>
 
-                    <Button primary>Log in</Button>
+                                <button type="button" className="btn-action">
+                                    <FontAwesomeIcon icon={faMessage} />
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <Button text>Upload</Button>
 
-                    <Menu
-                        items={MENU_ITEMS}
-                    >
-                        <button className="btn-more">
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
-                    </Menu>
+                                <Button primary>Log in</Button>
+                            </>
+                        )}
+                    </div>
+
+                    <div className="right-box">
+                        <Menu items={MENU_ITEMS}>
+                            {currentUser ? (
+                                <img className="user-avatar" src={imageAvatar} alt=""/>
+                            ) : (
+                                <button className="btn-more">
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            )}
+                        </Menu>
+                    </div>
                 </div>
             </div>
         </header>

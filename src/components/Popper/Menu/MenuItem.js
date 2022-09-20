@@ -1,8 +1,8 @@
 import Button from "../../Button";
 
-function MenuItem({ data }) {
+function MenuItem({ data, onClick }) {
     return (
-        <Button leftIcon={data.icon} to={data.to}>
+        <Button leftIcon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     )
