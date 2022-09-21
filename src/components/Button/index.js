@@ -11,6 +11,7 @@ function Button({
     rounded = false,
     small = false,
     large = false,
+    separate = false,
     leftIcon,
     rightIcon,
     children,
@@ -43,6 +44,7 @@ function Button({
         rounded: rounded ? 'btn-rounded' : '',
         small: small ? 'btn-small' : '',
         large: large ? 'btn-large' : '',
+        separate: separate ? 'separate' : ''
     }
 
     const resultClasses = Object.values(classes).filter(element => {

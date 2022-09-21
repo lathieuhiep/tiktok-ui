@@ -1,10 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+// Fonts embedded
+@font-face {
+  font-family: ProximaNova;
+  font-weight: 400;
+  src: url("../../assets/fonts/Proxima-Nova-Regular.woff2");
+}
+
+@font-face {
+  font-family: ProximaNova;
+  font-weight: 600;
+  src: url("../../assets/fonts/Proxima-Nova-Semibold.woff2");
+}
+
+@font-face {
+  font-family: ProximaNova;
+  font-weight: 700;
+  src: url("../../assets/fonts/Proxima-Nova-Bold.woff");
+}
+
+@font-face {
+  font-family: SofiaPro;
+  font-weight: 700;
+  src: url("../../assets/fonts/sofiapro-bold.woff");
+}
 
 :root {
   --primary: #fe2c55;
   --black: #000;
   --white: #fff;
-  --text-color: #333;
+  --text-color: #161823;
 
   // Default layout
   --default-layout-header-height: 60px;
@@ -23,7 +46,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'ProximaNova', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -38,6 +61,9 @@ a[href] {
   color: var(--text-color);
   text-decoration: none;
 }
+
+
+// Custom tippy tooltip
 
 body {
   .tippy-box {

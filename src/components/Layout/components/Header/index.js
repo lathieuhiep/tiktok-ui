@@ -2,11 +2,11 @@ import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faCircleQuestion,
-    faCircleXmark, faCloudUpload,
+    faCircleXmark, faCloudUpload, faCoins,
     faEarthAsia,
-    faEllipsisVertical, faKeyboard, faMessage,
-    faSearch,
-    faSpinner
+    faEllipsisVertical, faGear, faKeyboard, faMessage,
+    faSearch, faSignOut,
+    faSpinner, faUser
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/";
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -51,6 +51,7 @@ const MENU_ITEMS = [
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+    const currentUser = true
 
     useEffect(() => {
         setTimeout(() => {
@@ -58,7 +59,30 @@ function Header() {
         }, 0)
     }, [])
 
-    const currentUser = true
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'View profile',
+            to: '/@hoaa'
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get Coins',
+            to: '/coin'
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Settings',
+            to: '/settings'
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log out',
+            to: '/logout',
+            separate: true
+        },
+    ]
 
     return (
         <header className="header">
@@ -131,7 +155,7 @@ function Header() {
                     </div>
 
                     <div className="right-box">
-                        <Menu items={MENU_ITEMS}>
+                        <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                             {currentUser ? (
                                 <img className="user-avatar" src={imageAvatar} alt=""/>
                             ) : (

@@ -31,6 +31,7 @@ function Menu({ children, items = [] }) {
             interactive
             placement={'bottom-end'}
             delay={[0, 700]}
+            offset={[12, 8]}
             visible
             render={attrs => (
                 <div className="menu-items" tabIndex="-1" {...attrs}>
