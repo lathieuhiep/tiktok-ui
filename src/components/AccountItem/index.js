@@ -1,24 +1,25 @@
+import { Link } from "react-router-dom";
 import './AccountItem.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import images from "../../assets/images";
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
-        <div className="account-wrapper">
+        <Link to={`/@${data.username}`} className="account-wrapper">
             <div className="avatar">
                 <img src={images.avatarDefault} alt="Hoa" />
             </div>
 
             <div className="info">
                 <h4 className="name">
-                    <span>Nguyen Van A</span>
+                    <span>{data.name}</span>
                     <FontAwesomeIcon icon={faCheckCircle} />
                 </h4>
 
-                <span className="username">nguyenvana</span>
+                <span className="username">{data.username}</span>
             </div>
-        </div>
+        </Link>
     )
 }
 
