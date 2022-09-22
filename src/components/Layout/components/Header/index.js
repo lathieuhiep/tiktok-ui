@@ -4,7 +4,7 @@ import {
     faCircleQuestion,
     faCircleXmark, faCloudUpload, faCoins,
     faEarthAsia,
-    faEllipsisVertical, faGear, faKeyboard, faMessage,
+    faEllipsisVertical, faGear, faKeyboard,
     faSearch, faSignOut,
     faSpinner, faUser
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,10 +15,11 @@ import 'tippy.js/dist/tippy.css';
 import { Wrapper as PopperWrapper } from "../../../Popper";
 import './Header.scss';
 import images from "../../../../assets/images";
-import imageAvatar from "../../../../assets/images/avatar-default.png";
 import AccountItem from "../../../AccountItem";
 import Button from "../../../Button";
 import Menu from "../../../Popper/Menu";
+import {MessageIcon} from "../../../Icons";
+import Image from "../../../Image";
 
 const MENU_ITEMS = [
     {
@@ -142,7 +143,7 @@ function Header() {
                                 </Tippy>
 
                                 <button type="button" className="btn-action">
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <MessageIcon />
                                 </button>
                             </>
                         ) : (
@@ -157,7 +158,12 @@ function Header() {
                     <div className="right-box">
                         <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                             {currentUser ? (
-                                <img className="user-avatar" src={imageAvatar} alt=""/>
+                                <Image
+                                    className="user-avatar"
+                                    src={images.avatarDefault}
+                                    alt="Nguyen Van A"
+                                    fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                                />
                             ) : (
                                 <button className="btn-more">
                                     <FontAwesomeIcon icon={faEllipsisVertical} />
