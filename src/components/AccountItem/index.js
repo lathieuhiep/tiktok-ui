@@ -1,13 +1,13 @@
 import './AccountItem.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle} from "@fortawesome/free-solid-svg-icons";
-import imagesAvatarDefault from '../../assets/images/avatar-default.png'
+import images from "../../assets/images";
 
 function AccountItem() {
     return (
         <div className="account-wrapper">
             <div className="avatar">
-                <img src={imagesAvatarDefault} alt="Hoa" />
+                <img src={images.avatarDefault} alt="Hoa" />
             </div>
 
             <div className="info">
