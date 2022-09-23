@@ -12,16 +12,16 @@ import { useDebounce } from "../../../hooks";
 function Search() {
     const [searchValue, setSearchValue] = useState('')
     const [searchResult, setSearchResult] = useState([])
-    const [showResult, setShowResult] = useState(true)
+    const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const debounce = useDebounce(searchValue)
+    const debounceValue = useDebounce(searchValue)
 
     const inputRef = useRef();
 
     useEffect(() => {
 
-        if ( !debounce.trim() ) {
+        if ( !debounceValue.trim() ) {
             setSearchResult([])
             return
         }
@@ -30,7 +30,7 @@ function Search() {
 
         // call api user
         const fetchApi = async () => {
-            const result = await searchServices.search(debounce)
+            const result = await searchServices.search(debounceValue)
             setSearchResult(result)
 
             setLoading(false)
@@ -38,7 +38,7 @@ function Search() {
 
         fetchApi()
 
-    }, [debounce])
+    }, [debounceValue])
 
     const handleClear = () => {
         setSearchValue('')
