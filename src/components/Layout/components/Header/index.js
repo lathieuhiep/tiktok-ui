@@ -12,11 +12,15 @@ import 'tippy.js/dist/tippy.css';
 
 import './Header.scss';
 import images from "../../../../assets/images";
+
+import routesConfig from "../../../../config/routes";
+
 import Button from "../../../Button";
 import Menu from "../../../Popper/Menu";
 import {MessageIcon} from "../../../Icons";
 import Image from "../../../Image";
 import Search from "../Search";
+import {Link} from "react-router-dom";
 
 const MENU_ITEMS = [
     {
@@ -78,9 +82,9 @@ function Header() {
     return (
         <header className="header">
             <div className="header__inner">
-                <div className="logo">
+                <Link to={routesConfig.home} className="logo">
                     <img src={images.logo} alt="Tiktok" />
-                </div>
+                </Link>
 
                 {/* Search */}
                 <Search />

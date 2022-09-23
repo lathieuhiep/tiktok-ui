@@ -3,6 +3,8 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faSearch, faSpinner} from "@fortawesome/free-solid-svg-icons";
 
+import * as searchServices from "../../../../apiServices/searchServices";
+
 import {Wrapper as PopperWrapper} from "../../../Popper";
 import AccountItem from "../../../AccountItem";
 import { useDebounce } from "../../../../hooks";
@@ -26,12 +28,15 @@ function Search() {
 
         setLoading(true)
 
-       fetch(`https://jsonplaceholder.typicode.com/users?q=${encodeURIComponent(debounce)}`)
-           .then(res => res.json())
-           .then(res => {
-               setSearchResult(res)
-               setLoading(false)
-           })
+        // call api user
+        const fetchApi = async () => {
+            const result = await searchServices.search(debounce)
+            setSearchResult(result)
+
+            setLoading(false)
+        }
+
+        fetchApi()
 
     }, [debounce])
 
@@ -43,6 +48,19 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false)
+    }
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value
+
+        if ( !searchValue.startsWith(' ') ) {
+            setSearchValue(searchValue)
+        }
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
@@ -73,7 +91,7 @@ function Search() {
                         value={searchValue}
                         placeholder="Search accounts and videos"
                         spellCheck={false}
-                        onChange={e => setSearchValue(e.target.value)}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
 
@@ -92,7 +110,7 @@ function Search() {
                         </div>
                     )}
 
-                    <button className="btn-search">
+                    <button className="btn-search" onMouseDown={handleSubmit}>
                         <FontAwesomeIcon icon={faSearch}/>
                     </button>
                 </form>

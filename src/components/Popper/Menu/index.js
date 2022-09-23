@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import Header from "./Header";
 import {useState} from "react";
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -32,6 +32,7 @@ function Menu({ children, items = [] }) {
             placement={'bottom-end'}
             delay={[0, 700]}
             offset={[12, 8]}
+            hideOnClick={hideOnClick}
             render={attrs => (
                 <div className="menu-items" tabIndex="-1" {...attrs}>
                     <PopperWrapper>
