@@ -16,6 +16,12 @@ function SuggestedAccounts({ label }) {
                 <AccountItem />
                 <AccountItem />
             </div>
+
+            <div className="action">
+                <p className="more-btn">
+                    See all
+                </p>
+            </div>
         </div>
     )
 }

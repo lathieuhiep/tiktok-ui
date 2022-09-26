@@ -1,4 +1,12 @@
 .suggested-accounts {
+  padding-top: 12px;
+  border-top: 1px solid #e3e3e4;
+
+  &__label {
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
   .account-item {
     margin-bottom: 24px;
     display: grid;
@@ -26,11 +34,27 @@
       strong {
         margin-right: 12px;
         color: #161823;
+        line-height: 1em;
+      }
+
+      svg {
+        color: #20D5EC;
       }
     }
 
     .name {
       font-size: 1.2rem;
+      color: rgba(22, 24, 35, 0.75);
     }
+  }
+
+  .action {
+    padding: 8px;
+  }
+
+  .more-btn {
+    cursor: pointer;
+    color: rgb(254, 44, 85);
+    font-weight: 700;
   }
 }

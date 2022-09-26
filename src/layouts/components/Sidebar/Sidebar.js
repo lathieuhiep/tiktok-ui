@@ -18,6 +18,7 @@ function Sidebar() {
             </Menu>
 
             <SuggestedAccounts label={'Suggested Accounts'} />
+            <SuggestedAccounts label={'Following Accounts'} />
         </aside>
     )
 }
