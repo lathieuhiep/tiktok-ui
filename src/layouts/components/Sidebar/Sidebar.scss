@@ -1,10 +1,28 @@
 .sidebar {
+  padding: 20px 0 26px 8px;
   width: 356px;
 }
 
 // widget nav menu
 .widget-nav-menu {
+  display: grid;
+
   a {
-    display: flex;
+    padding: 8px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+
+    span {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background-color: rgba(22, 24, 35, .03);
+    }
+
+    &.active {
+      color: rgb(254, 44, 85);
+    }
   }
 }
