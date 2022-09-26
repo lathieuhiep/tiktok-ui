@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-
-const handelActiveMenu = (nav) => {
-    console.log(nav)
-    return nav.isActive ? 'active' : ''
-}
+import {NavLink} from "react-router-dom";
 
 function MenuItem({ title, to, icon }) {
+    const handelActiveMenu = (nav) => {
+        return nav.isActive ? 'active' : ''
+    }
+
     return (
-        <NavLink className={(nav) => handelActiveMenu(nav)} to={to}>
+        <NavLink to={to} end>
             {icon}
             <span>{title}</span>
         </NavLink>
