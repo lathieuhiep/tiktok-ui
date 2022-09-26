@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import {NavLink} from "react-router-dom";
 
 function MenuItem({ title, to, icon }) {
-    const handelActiveMenu = (nav) => {
-        return nav.isActive ? 'active' : ''
-    }
-
     return (
         <NavLink to={to} end>
             {icon}

@@ -6,6 +6,7 @@ import {faBullseye, faCamera, faHome} from "@fortawesome/free-solid-svg-icons";
 import './Sidebar.scss';
 
 import Menu, { MenuItem } from "./Menu";
+import SuggestedAccounts from "../../../components/SuggestedAccounts";
 
 function Sidebar() {
     return (
@@ -15,6 +16,8 @@ function Sidebar() {
                 <MenuItem title="Following" to={config.routes.following} icon={<FontAwesomeIcon icon={faBullseye} />} />
                 <MenuItem title="LIVE" to={config.routes.live} icon={<FontAwesomeIcon icon={faCamera} />} />
             </Menu>
+
+            <SuggestedAccounts label={'Suggested Accounts'} />
         </aside>
     )
 }
