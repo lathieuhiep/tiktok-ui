@@ -1,4 +1,4 @@
-import config from "../../../config";
+import config from "~/config";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBullseye, faCamera, faHome} from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +6,7 @@ import {faBullseye, faCamera, faHome} from "@fortawesome/free-solid-svg-icons";
 import './Sidebar.scss';
 
 import Menu, { MenuItem } from "./Menu";
-import SuggestedAccounts from "../../../components/SuggestedAccounts";
+import SuggestedAccounts from "~/components/SuggestedAccounts";
 
 function Sidebar() {
     return (

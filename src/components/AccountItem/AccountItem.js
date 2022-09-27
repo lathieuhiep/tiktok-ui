@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './AccountItem.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle} from "@fortawesome/free-solid-svg-icons";
-import images from "../../assets/images";
+import images from "~/assets/images";
 
 function AccountItem({ data }) {
     return (

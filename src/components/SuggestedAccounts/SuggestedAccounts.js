@@ -15,6 +15,9 @@ function SuggestedAccounts({ label }) {
                 <AccountItem />
                 <AccountItem />
                 <AccountItem />
+                <AccountItem />
+                <AccountItem />
+                <AccountItem />
             </div>
 
             <div className="action">

@@ -11,14 +11,12 @@ import Tippy from "@tippyjs/react/";
 import 'tippy.js/dist/tippy.css';
 
 import './Header.scss';
-import images from "../../../assets/images";
-
-import config from "../../../config";
-
-import Button from "../../../components/Button";
-import Menu from "../../../components/Popper/Menu";
-import {MessageIcon} from "../../../components/Icons";
-import Image from "../../../components/Image";
+import images from "~/assets/images";
+import config from "~/config";
+import Button from "~/components/Button";
+import Menu from "~/components/Popper/Menu";
+import {MessageIcon} from "~/components/Icons";
+import Image from "~/components/Image";
 import Search from "../Search";
 import {Link} from "react-router-dom";
 

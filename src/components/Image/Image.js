@@ -1,5 +1,5 @@
 import {forwardRef, useState} from 'react';
-import images from "../../assets/images";
+import images from "~/assets/images";
 
 const Image = forwardRef(({ src, alt, fallback: customFallback = images.noImage, ...props }, ref) => {
     const [fallback, setFallback] = useState('')

@@ -3,11 +3,11 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faSearch, faSpinner} from "@fortawesome/free-solid-svg-icons";
 
-import * as searchServices from "../../../services/searchServices";
+import * as searchServices from "~/services/searchServices";
 
-import {Wrapper as PopperWrapper} from "../../../components/Popper";
-import AccountItem from "../../../components/AccountItem";
-import { useDebounce } from "../../../hooks";
+import {Wrapper as PopperWrapper} from "~/components/Popper";
+import AccountItem from "~/components/AccountItem";
+import { useDebounce } from "~/hooks";
 
 function Search() {
     const [searchValue, setSearchValue] = useState('')
